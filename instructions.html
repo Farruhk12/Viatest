@@ -1,0 +1,256 @@
+﻿<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Как пользоваться тестом Viatest — инструкция и таймер</title>
+    <meta
+      name="description"
+      content="Пошаговая инструкция для теста Viatest: ХГЧ полоска, ХГЧ мидстрим и ЛГ полоска. Встроенный таймер отсчитывает время до результата."
+    />
+    <meta name="theme-color" content="#eef7fa" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+      <symbol id="icon-drop" viewBox="0 0 24 24">
+        <path d="M12 3.5s6 6.7 6 11.2a6 6 0 1 1-12 0c0-4.5 6-11.2 6-11.2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M8.8 15.2a3.3 3.3 0 0 0 3.2 3.1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".6"/>
+      </symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M12 7.5V12l3.2 1.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".35"/>
+        <path d="M8 12.4l2.6 2.6L16.4 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icon-strip" viewBox="0 0 24 24">
+        <rect x="9" y="2.5" width="6" height="19" rx="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M9 8.5h6" stroke="currentColor" stroke-width="1.4"/>
+        <rect x="10.4" y="11" width="1.4" height="5" rx=".7" fill="currentColor" stroke="none"/>
+        <rect x="12.6" y="11" width="1.4" height="5" rx=".7" fill="currentColor" stroke="none" opacity=".55"/>
+      </symbol>
+      <symbol id="icon-cart" viewBox="0 0 24 24">
+        <path d="M3.5 4.5h2l1.6 10.3a2 2 0 0 0 2 1.7h7.4a2 2 0 0 0 2-1.6l1.3-6.4H6.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="10" cy="20" r="1.3" fill="currentColor" stroke="none"/>
+        <circle cx="17" cy="20" r="1.3" fill="currentColor" stroke="none"/>
+      </symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+        <path d="M4.5 12h15M13.5 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    </svg>
+
+    <header class="site-header" id="top">
+      <a class="brand" href="index.html" aria-label="Viatest">
+        <img src="assets/logo/viatest-logo.png" alt="Viatest" width="2326" height="745" />
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a href="index.html">Главная</a>
+        <a href="calculator.html">Калькулятор</a>
+        <a href="tests.html">Тесты</a>
+        <a href="instructions.html" aria-current="page">Как пользоваться</a>
+        <a href="results.html">Результаты</a>
+        <a href="faq.html">Вопросы</a>
+      </nav>
+      <div class="header-actions">
+        <div class="language-switcher" role="group" aria-label="Язык сайта">
+          <button class="language-option is-active" type="button" data-lang-switch="ru">RU</button>
+          <button class="language-option" type="button" data-lang-switch="tj">TJ</button>
+        </div>
+        <a class="button button-primary button-small" href="#" data-buy="default" data-place="header"
+          ><svg class="icon"><use href="#icon-cart"></use></svg>Купить</a
+        >
+      </div>
+    </header>
+
+    <main>
+      <section class="instructions section-band" id="instructions" aria-labelledby="instructions-title">
+        <div class="section-inner">
+          <div class="section-heading section-heading-illustrated">
+            <div>
+              <p class="eyebrow"><svg class="icon"><use href="#icon-drop"></use></svg>Официальные инструкции</p>
+              <h2 id="instructions-title">Как пользоваться тестом</h2>
+              <p>Шаги взяты из официальных инструкций производителя. Результат оценивайте только в указанном временном интервале.</p>
+            </div>
+            <img class="section-illustration" src="assets/illustrations/how-to-use.png" alt="" width="280" height="280" loading="lazy" />
+          </div>
+          <div class="tab-list" role="tablist" aria-label="Тип теста">
+            <button class="tab-card is-active" type="button" role="tab" aria-selected="true" data-tab="hcg-strip">
+              <span class="tab-card-icon"><svg class="icon"><use href="#icon-strip"></use></svg></span>
+              <span class="tab-card-text">
+                <strong>ХГЧ полоска</strong>
+                <span>Классический тест для раннего определения беременности</span>
+              </span>
+              <img class="tab-thumb" src="assets/products/hcg-strip-box.png" alt="" loading="lazy" />
+              <span class="tab-card-arrow" aria-hidden="true"><svg class="icon"><use href="#icon-arrow-right"></use></svg></span>
+            </button>
+            <button class="tab-card" type="button" role="tab" aria-selected="false" data-tab="hcg-midstream">
+              <span class="tab-card-icon"><svg class="icon"><use href="#icon-strip"></use></svg></span>
+              <span class="tab-card-text">
+                <strong>ХГЧ мидстрим</strong>
+                <span>Удобный формат для простого и точного результата</span>
+              </span>
+              <img class="tab-thumb" src="assets/products/hcg-midstream-device.png" alt="" loading="lazy" />
+              <span class="tab-card-arrow" aria-hidden="true"><svg class="icon"><use href="#icon-arrow-right"></use></svg></span>
+            </button>
+            <button class="tab-card" type="button" role="tab" aria-selected="false" data-tab="lh-strip">
+              <span class="tab-card-icon"><svg class="icon"><use href="#icon-strip"></use></svg></span>
+              <span class="tab-card-text">
+                <strong>ЛГ полоска</strong>
+                <span>Тест на овуляцию для планирования беременности</span>
+              </span>
+              <img class="tab-thumb" src="assets/products/lh-ovulation-strip-box.png" alt="" loading="lazy" />
+              <span class="tab-card-arrow" aria-hidden="true"><svg class="icon"><use href="#icon-arrow-right"></use></svg></span>
+            </button>
+          </div>
+
+          <div class="instruction-panel is-active" id="panel-hcg-strip" data-panel="hcg-strip">
+            <div class="steps steps-illustrated">
+              <article class="step-card reveal">
+                <img class="step-illustration" src="assets/illustrations/steps/hcg-strip-step-1.png" alt="" loading="lazy" />
+                <h3>Извлеките полоску</h3>
+                <p>Достаньте тест-полоску из запечатанного пакета непосредственно перед использованием.</p>
+              </article>
+              <article class="step-card reveal">
+                <img class="step-illustration" src="assets/illustrations/steps/hcg-strip-step-2.png" alt="" loading="lazy" />
+                <h3>Погрузите до MAX</h3>
+                <p>Опустите конец со стрелкой в мочу не выше линии MAX на 10–20 секунд.</p>
+              </article>
+              <article class="step-card reveal">
+                <img class="step-illustration" src="assets/illustrations/steps/hcg-strip-step-3.png" alt="" loading="lazy" />
+                <h3>Положите горизонтально</h3>
+                <p>Разместите полоску на чистой невпитывающей поверхности.</p>
+              </article>
+              <article class="step-card reveal">
+                <img class="step-illustration" src="assets/illustrations/steps/hcg-strip-step-4.png" alt="" loading="lazy" />
+                <h3>Считайте результат</h3>
+                <p>Считайте результат в течение 5 минут. Не интерпретируйте после 10 минут.</p>
+              </article>
+            </div>
+            <div class="instruction-actions">
+              <a class="button button-secondary" href="assets/instructions/hcg-10miu-instruction-ru.docx" download data-event="instruction_download">Скачать инструкцию DOCX</a>
+              <button class="button button-primary timer-start" type="button" data-seconds="300" data-label="ХГЧ полоска">
+                <svg class="icon"><use href="#icon-clock"></use></svg>Начать таймер 5 минут
+              </button>
+            </div>
+          </div>
+
+          <div class="instruction-panel" id="panel-hcg-midstream" data-panel="hcg-midstream" hidden>
+            <div class="steps steps-illustrated">
+              <article class="step-card reveal">
+                <img class="step-illustration" src="assets/illustrations/steps/hcg-midstream-step-1.png" alt="" loading="lazy" />
+                <h3>Откройте пакет</h3>
+                <p>Извлеките тест-палочку из фольгированного пакета.</p>
+              </article>
+              <article class="step-card reveal">
+                <img class="step-illustration" src="assets/illustrations/steps/hcg-midstream-step-2.png" alt="" loading="lazy" />
+                <h3>Снимите колпачок</h3>
+                <p>Откройте абсорбирующий наконечник, не касаясь тестовой области.</p>
+              </article>
+              <article class="step-card reveal">
+                <img class="step-illustration" src="assets/illustrations/steps/hcg-midstream-step-3.png" alt="" loading="lazy" />
+                <h3>Намочите наконечник</h3>
+                <p>Держите палочку наконечником вниз и мочитесь только на наконечник, пока он полностью не намокнет.</p>
+              </article>
+              <article class="step-card reveal">
+                <img class="step-illustration" src="assets/illustrations/steps/hcg-midstream-step-4.png" alt="" loading="lazy" />
+                <h3>Положите окошками вверх</h3>
+                <p>Положите тест на ровную поверхность и считайте результат в течение 5 минут. Не интерпретируйте после 10 минут.</p>
+              </article>
+            </div>
+            <div class="instruction-actions">
+              <a class="button button-secondary" href="assets/instructions/hcg-10miu-instruction-ru.docx" download data-event="instruction_download">Скачать инструкцию DOCX</a>
+              <button class="button button-primary timer-start" type="button" data-seconds="300" data-label="ХГЧ мидстрим">
+                <svg class="icon"><use href="#icon-clock"></use></svg>Начать таймер 5 минут
+              </button>
+            </div>
+          </div>
+
+          <div class="instruction-panel" id="panel-lh-strip" data-panel="lh-strip" hidden>
+            <div class="steps steps-illustrated">
+              <article class="step-card reveal">
+                <img class="step-illustration" src="assets/illustrations/steps/lh-strip-step-1.png" alt="" loading="lazy" />
+                <h3>Определите день старта</h3>
+                <p>При цикле 28 дней инструкция рекомендует начинать тестирование на 12-й день цикла. Если цикл неизвестен, начните с 11-го дня.</p>
+              </article>
+              <article class="step-card reveal">
+                <img class="step-illustration" src="assets/illustrations/steps/lh-strip-step-2.png" alt="" loading="lazy" />
+                <h3>Соберите мочу</h3>
+                <p>Используйте свежий образец примерно в одно и то же время. Для лучших результатов — между 10:00 и 20:00.</p>
+              </article>
+              <article class="step-card reveal">
+                <img class="step-illustration" src="assets/illustrations/steps/lh-strip-step-3.png" alt="" loading="lazy" />
+                <h3>Погрузите полоску</h3>
+                <p>Опустите конец со стрелкой в мочу не выше MAX минимум на 15 секунд, затем положите горизонтально.</p>
+              </article>
+              <article class="step-card reveal">
+                <img class="step-illustration" src="assets/illustrations/steps/lh-strip-step-4.png" alt="" loading="lazy" />
+                <h3>Считайте на 10-й минуте</h3>
+                <p>Оценивайте результат на 10-й минуте. Не интерпретируйте результат после 15 минут.</p>
+              </article>
+            </div>
+            <div class="instruction-actions">
+              <a class="button button-secondary" href="assets/instructions/lh-instruction-ru.docx" download data-event="instruction_download">Скачать инструкцию DOCX</a>
+              <button class="button button-primary timer-start" type="button" data-seconds="600" data-label="ЛГ полоска">
+                <svg class="icon"><use href="#icon-clock"></use></svg>Начать таймер 10 минут
+              </button>
+            </div>
+          </div>
+
+          <div class="timer-card" aria-live="polite">
+            <div class="timer-card-row">
+              <div class="timer-ring" id="timer-ring">
+                <svg viewBox="0 0 88 88" width="88" height="88" aria-hidden="true">
+                  <circle class="timer-ring-track" cx="44" cy="44" r="38" />
+                  <circle class="timer-ring-progress" cx="44" cy="44" r="38" />
+                </svg>
+                <strong id="timer-display">00:00</strong>
+              </div>
+              <div class="timer-card-info">
+                <span class="timer-label"><svg class="icon"><use href="#icon-clock"></use></svg>Таймер результата</span>
+                <p>Рекомендуемое время — 5 минут</p>
+              </div>
+              <button class="button button-secondary button-small" type="button" id="timer-reset">Сбросить</button>
+            </div>
+            <div class="timer-progress-bar">
+              <div class="timer-progress-fill" id="timer-progress-fill"></div>
+            </div>
+          </div>
+
+          <div class="hero-actions" style="justify-content: center; margin-top: 44px">
+            <a class="button button-secondary" href="results.html"
+              >Далее: как читать результат <svg class="icon"><use href="#icon-arrow-right"></use></svg></a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-main">
+        <img src="assets/logo/viatest-logo.png" alt="Viatest" width="2326" height="745" />
+        <p>Viatest помогает спокойно разобраться с выбором теста, инструкцией и результатом.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Навигация в подвале">
+        <a href="tests.html">Тесты</a>
+        <a href="instructions.html">Инструкции</a>
+        <a href="results.html">Результаты</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+      <p class="disclaimer">
+        Информация на сайте предназначена для ознакомления и не заменяет консультацию медицинского специалиста. Для интерпретации результата используйте официальную инструкцию конкретного продукта.
+      </p>
+    </footer>
+
+    <a class="sticky-buy" href="#" data-buy="default" data-place="sticky_mobile"
+      ><svg class="icon"><use href="#icon-cart"></use></svg>Купить</a
+    >
+    <script src="app.js" defer></script>
+  </body>
+</html>

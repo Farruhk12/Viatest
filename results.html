@@ -1,0 +1,202 @@
+﻿<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Как читать результат теста Viatest</title>
+    <meta
+      name="description"
+      content="Как интерпретировать результат теста Viatest: положительный, отрицательный и недействительный результат, слабая вторая полоска, что делать дальше."
+    />
+    <meta name="theme-color" content="#eef7fa" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".35"/>
+        <path d="M8 12.4l2.6 2.6L16.4 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icon-heart" viewBox="0 0 24 24">
+        <path d="M12 20s-7.4-4.6-9.6-9.2C1 7.4 2.6 4 6.2 4c2 0 3.6 1.1 4.6 2.6l1.2 1.8 1.2-1.8C14.2 5.1 15.8 4 17.8 4c3.6 0 5.2 3.4 3.8 6.8C19.4 15.4 12 20 12 20Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icon-question" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".35"/>
+        <path d="M9.5 9.6a2.5 2.5 0 1 1 3.6 2.25c-.7.35-1.1.85-1.1 1.55v.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+        <circle cx="12" cy="16.7" r="1" fill="currentColor" stroke="none"/>
+      </symbol>
+      <symbol id="icon-chat" viewBox="0 0 24 24">
+        <path d="M4 5.5h16a1 1 0 0 1 1 1V15a1 1 0 0 1-1 1H9.5L5 19.5V16H4a1 1 0 0 1-1-1V6.5a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        <circle cx="8.3" cy="10.7" r="1" fill="currentColor" stroke="none"/>
+        <circle cx="12" cy="10.7" r="1" fill="currentColor" stroke="none" opacity=".6"/>
+        <circle cx="15.7" cy="10.7" r="1" fill="currentColor" stroke="none" opacity=".6"/>
+      </symbol>
+      <symbol id="icon-bulb" viewBox="0 0 24 24">
+        <path d="M12 3.5a6 6 0 0 1 3.4 10.9c-.5.35-.9 1-.9 1.7V17H9.5v-.9c0-.7-.4-1.35-.9-1.7A6 6 0 0 1 12 3.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M9.7 20h4.6M10.4 22h3.2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="icon-cart" viewBox="0 0 24 24">
+        <path d="M3.5 4.5h2l1.6 10.3a2 2 0 0 0 2 1.7h7.4a2 2 0 0 0 2-1.6l1.3-6.4H6.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="10" cy="20" r="1.3" fill="currentColor" stroke="none"/>
+        <circle cx="17" cy="20" r="1.3" fill="currentColor" stroke="none"/>
+      </symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+        <path d="M4.5 12h15M13.5 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    </svg>
+
+    <header class="site-header" id="top">
+      <a class="brand" href="index.html" aria-label="Viatest">
+        <img src="assets/logo/viatest-logo.png" alt="Viatest" width="2326" height="745" />
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a href="index.html">Главная</a>
+        <a href="calculator.html">Калькулятор</a>
+        <a href="tests.html">Тесты</a>
+        <a href="instructions.html">Как пользоваться</a>
+        <a href="results.html" aria-current="page">Результаты</a>
+        <a href="faq.html">Вопросы</a>
+      </nav>
+      <div class="header-actions">
+        <div class="language-switcher" role="group" aria-label="Язык сайта">
+          <button class="language-option is-active" type="button" data-lang-switch="ru">RU</button>
+          <button class="language-option" type="button" data-lang-switch="tj">TJ</button>
+        </div>
+        <a class="button button-primary button-small" href="#" data-buy="default" data-place="header"
+          ><svg class="icon"><use href="#icon-cart"></use></svg>Купить</a
+        >
+      </div>
+    </header>
+
+    <main>
+      <section class="section-band results" id="results" aria-labelledby="results-title">
+        <div class="section-inner">
+          <div class="section-heading section-heading-illustrated">
+            <div>
+              <p class="eyebrow"><svg class="icon"><use href="#icon-check"></use></svg>Интерпретация</p>
+              <h2 id="results-title">Как читать результат ХГЧ-теста</h2>
+              <p>Оценивайте полосы в зоне C и T только в интервале времени из инструкции конкретного теста.</p>
+            </div>
+            <img class="section-illustration" src="assets/illustrations/test-results.png" alt="" width="280" height="280" loading="lazy" />
+          </div>
+          <div class="result-grid">
+            <article class="result-card reveal">
+              <div class="test-window" aria-hidden="true">
+                <span class="line line-c"></span>
+                <span class="line line-t"></span>
+              </div>
+              <h3>Положительный</h3>
+              <p>Две розовые полосы в областях C и T означают положительный результат по инструкции ХГЧ-теста.</p>
+            </article>
+            <article class="result-card reveal">
+              <div class="test-window" aria-hidden="true">
+                <span class="line line-c"></span>
+              </div>
+              <h3>Отрицательный</h3>
+              <p>Одна розовая полоса только в области C означает отрицательный результат по инструкции.</p>
+            </article>
+            <article class="result-card reveal">
+              <div class="test-window invalid" aria-hidden="true">
+                <span class="line line-t"></span>
+              </div>
+              <h3>Недействительный</h3>
+              <p>Если контрольной полосы C нет или полос нет совсем, повторите тест новым устройством.</p>
+            </article>
+          </div>
+
+          <div class="weak-line">
+            <div>
+              <p class="eyebrow"><svg class="icon"><use href="#icon-question"></use></svg>Частый вопрос</p>
+              <h3>Слабая вторая полоска</h3>
+              <p>
+                Инструкция ХГЧ-теста отмечает: при слабой тестовой полосе повторите тест с первой утренней мочой через 48–72 часа. Какой бы результат ни был получен, рекомендуется проконсультироваться с врачом.
+              </p>
+            </div>
+            <img class="weak-line-illustration" src="assets/illustrations/faint-second-line.png" alt="" width="280" height="280" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <section class="result-helper section-band" aria-labelledby="helper-title">
+        <div class="section-inner two-column">
+          <div class="section-copy">
+            <p class="eyebrow"><svg class="icon"><use href="#icon-chat"></use></svg>Что делать дальше</p>
+            <h2 id="helper-title">Какой результат вы получили?</h2>
+            <p>Выберите вариант, чтобы увидеть следующий безопасный шаг без постановки диагноза по внешнему виду теста.</p>
+          </div>
+          <div class="helper-panel">
+            <div class="segmented-control" role="group" aria-label="Выбор результата">
+              <button class="segment is-active" type="button" data-result="positive">Положительный</button>
+              <button class="segment" type="button" data-result="negative">Отрицательный</button>
+              <button class="segment" type="button" data-result="unclear">Не могу понять</button>
+            </div>
+            <div class="helper-copy" id="result-advice" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="next-steps" aria-labelledby="next-title">
+        <div class="section-inner">
+          <div class="section-heading section-heading-illustrated">
+            <div>
+              <p class="eyebrow"><svg class="icon"><use href="#icon-bulb"></use></svg>Алгоритм</p>
+              <h2 id="next-title">Следующий шаг после результата</h2>
+            </div>
+            <img class="section-illustration" src="assets/illustrations/positive-next-step.png" alt="" width="280" height="280" loading="lazy" />
+          </div>
+          <div class="next-grid">
+            <article class="reveal">
+              <h3><svg class="icon"><use href="#icon-heart"></use></svg>После положительного результата</h3>
+              <ol>
+                <li>Убедитесь, что результат оценён в нужное время и по инструкции.</li>
+                <li>При необходимости подтвердите беременность медицинским методом по рекомендации врача.</li>
+                <li>Запланируйте консультацию медицинского специалиста.</li>
+                <li>При боли, выраженном кровотечении, обмороке или других тревожных симптомах обратитесь за медицинской помощью без ожидания планового визита.</li>
+              </ol>
+            </article>
+            <article class="reveal">
+              <h3><svg class="icon"><use href="#icon-question"></use></svg>После отрицательного результата</h3>
+              <ol>
+                <li>Проверьте, не был ли тест сделан слишком рано.</li>
+                <li>При необходимости повторите тест согласно инструкции.</li>
+                <li>При сохраняющейся задержке обратитесь к медицинскому специалисту.</li>
+              </ol>
+            </article>
+          </div>
+
+          <div class="hero-actions" style="justify-content: center; margin-top: 44px">
+            <a class="button button-secondary" href="faq.html"
+              >Далее: частые вопросы <svg class="icon"><use href="#icon-arrow-right"></use></svg></a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-main">
+        <img src="assets/logo/viatest-logo.png" alt="Viatest" width="2326" height="745" />
+        <p>Viatest помогает спокойно разобраться с выбором теста, инструкцией и результатом.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Навигация в подвале">
+        <a href="tests.html">Тесты</a>
+        <a href="instructions.html">Инструкции</a>
+        <a href="results.html">Результаты</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+      <p class="disclaimer">
+        Информация на сайте предназначена для ознакомления и не заменяет консультацию медицинского специалиста. Для интерпретации результата используйте официальную инструкцию конкретного продукта.
+      </p>
+    </footer>
+
+    <a class="sticky-buy" href="#" data-buy="default" data-place="sticky_mobile"
+      ><svg class="icon"><use href="#icon-cart"></use></svg>Купить</a
+    >
+    <script src="app.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,199 @@
+﻿<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Калькулятор даты теста — Viatest</title>
+    <meta
+      name="description"
+      content="Рассчитайте ожидаемую дату менструации и день старта теста на овуляцию по первому дню последней менструации и длине цикла."
+    />
+    <meta name="theme-color" content="#eef7fa" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+      <symbol id="icon-flower" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="2.4" fill="currentColor" stroke="none"/>
+          <path d="M12 9.6c-1.6 0-3-1.2-3-3.3S10.4 3 12 3s3 1.6 3 3.3-1.4 3.3-3 3.3Z" opacity=".55"/>
+          <path d="M12 14.4c1.6 0 3 1.2 3 3.3S13.6 21 12 21s-3-1.6-3-3.3 1.4-3.3 3-3.3Z" opacity=".55"/>
+          <path d="M9.6 12c0 1.6-1.2 3-3.3 3S3 13.6 3 12s1.6-3 3.3-3 3.3 1.4 3.3 3Z" opacity=".55"/>
+          <path d="M14.4 12c0-1.6 1.2-3 3.3-3S21 10.4 21 12s-1.6 3-3.3 3-3.3-1.4-3.3-3Z" opacity=".55"/>
+        </g>
+      </symbol>
+      <symbol id="icon-drop" viewBox="0 0 24 24">
+        <path d="M12 3.5s6 6.7 6 11.2a6 6 0 1 1-12 0c0-4.5 6-11.2 6-11.2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M8.8 15.2a3.3 3.3 0 0 0 3.2 3.1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".6"/>
+      </symbol>
+      <symbol id="icon-calendar" viewBox="0 0 24 24">
+        <rect x="3.5" y="5.5" width="17" height="15" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M8 3.5v4M16 3.5v4M3.5 10.5h17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="8.3" cy="14.5" r="1.1" fill="currentColor" stroke="none"/>
+        <circle cx="12" cy="14.5" r="1.1" fill="currentColor" stroke="none" opacity=".55"/>
+        <circle cx="15.7" cy="14.5" r="1.1" fill="currentColor" stroke="none" opacity=".55"/>
+      </symbol>
+      <symbol id="icon-heart" viewBox="0 0 24 24">
+        <path d="M12 20s-7.4-4.6-9.6-9.2C1 7.4 2.6 4 6.2 4c2 0 3.6 1.1 4.6 2.6l1.2 1.8 1.2-1.8C14.2 5.1 15.8 4 17.8 4c3.6 0 5.2 3.4 3.8 6.8C19.4 15.4 12 20 12 20Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M12 7.5V12l3.2 1.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M12 2.8v2.4M12 18.8v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.8 12h2.4M18.8 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="icon-leaf" viewBox="0 0 24 24">
+        <path d="M5 19c8.5 0 14-5.5 14-14 0-.8-.05-1.4-.1-1.9C10.4 3.6 5 8.6 5 17c0 .5.05 1.3.1 2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M6.5 17.5 17 7" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".55"/>
+      </symbol>
+      <symbol id="icon-question" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".35"/>
+        <path d="M9.5 9.6a2.5 2.5 0 1 1 3.6 2.25c-.7.35-1.1.85-1.1 1.55v.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+        <circle cx="12" cy="16.7" r="1" fill="currentColor" stroke="none"/>
+      </symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+        <path d="M4.5 12h15M13.5 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icon-sparkle" viewBox="0 0 24 24">
+        <path d="M12 3.5c.6 3 2 4.4 5 5-3 .6-4.4 2-5 5-.6-3-2-4.4-5-5 3-.6 4.4-2 5-5Z" fill="currentColor" stroke="none"/>
+        <path d="M19 15c.3 1.4.9 2 2.3 2.3-1.4.3-2 .9-2.3 2.3-.3-1.4-.9-2-2.3-2.3 1.4-.3 2-.9 2.3-2.3Z" fill="currentColor" stroke="none" opacity=".6"/>
+      </symbol>
+      <symbol id="icon-cart" viewBox="0 0 24 24">
+        <path d="M3.5 4.5h2l1.6 10.3a2 2 0 0 0 2 1.7h7.4a2 2 0 0 0 2-1.6l1.3-6.4H6.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="10" cy="20" r="1.3" fill="currentColor" stroke="none"/>
+        <circle cx="17" cy="20" r="1.3" fill="currentColor" stroke="none"/>
+      </symbol>
+    </svg>
+
+    <header class="site-header" id="top">
+      <a class="brand" href="index.html" aria-label="Viatest">
+        <img src="assets/logo/viatest-logo.png" alt="Viatest" width="2326" height="745" />
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a href="index.html">Главная</a>
+        <a href="calculator.html" aria-current="page">Калькулятор</a>
+        <a href="tests.html">Тесты</a>
+        <a href="instructions.html">Как пользоваться</a>
+        <a href="results.html">Результаты</a>
+        <a href="faq.html">Вопросы</a>
+      </nav>
+      <div class="header-actions">
+        <div class="language-switcher" role="group" aria-label="Язык сайта">
+          <button class="language-option is-active" type="button" data-lang-switch="ru">RU</button>
+          <button class="language-option" type="button" data-lang-switch="tj">TJ</button>
+        </div>
+        <a class="button button-primary button-small" href="#" data-buy="default" data-place="header"
+          ><svg class="icon"><use href="#icon-cart"></use></svg>Купить</a
+        >
+      </div>
+    </header>
+
+    <main>
+      <section class="calculator-hub" id="when" aria-labelledby="when-title">
+        <div class="section-inner">
+          <div class="section-heading calculator-heading section-heading-illustrated">
+            <div>
+              <p class="eyebrow"><svg class="icon"><use href="#icon-calendar"></use></svg>Когда тестироваться</p>
+              <h2 id="when-title">Калькулятор даты теста</h2>
+              <p>
+                Укажите первый день последней менструации и среднюю длину цикла — калькулятор покажет ожидаемые даты и объяснит, откуда взялась каждая из них. Расчёт носит информационный характер и не заменяет официальную инструкцию и консультацию специалиста.
+              </p>
+            </div>
+            <img class="section-illustration" src="assets/illustrations/test-calculator.png" alt="" width="280" height="280" loading="lazy" />
+          </div>
+
+          <div class="calculator-layout">
+            <form class="calculator-panel" id="date-calculator">
+              <label class="calculator-field">
+                <span class="field-step">01</span>
+                <span class="field-body">
+                  <span class="field-label">Первый день последней менструации</span>
+                  <input type="date" id="last-period" required />
+                </span>
+              </label>
+              <label class="calculator-field">
+                <span class="field-step">02</span>
+                <span class="field-body">
+                  <span class="field-label">Средняя продолжительность цикла</span>
+                  <input type="number" id="cycle-length" min="21" max="40" value="28" required />
+                </span>
+              </label>
+              <label class="calculator-field">
+                <span class="field-step">03</span>
+                <span class="field-body">
+                  <span class="field-label">Предполагаемая овуляция (если известна)</span>
+                  <input type="date" id="ovulation-date" />
+                </span>
+              </label>
+              <button class="button button-primary calculator-submit" type="submit">
+                <svg class="icon"><use href="#icon-sparkle"></use></svg>Рассчитать даты
+              </button>
+              <div class="notice">
+                <svg class="icon"><use href="#icon-leaf"></use></svg>
+                <span>При слишком раннем тестировании возможен ложноотрицательный результат — ориентируйтесь на инструкцию конкретного теста.</span>
+              </div>
+            </form>
+
+            <div class="result-card-hub" id="calculator-output" aria-live="polite">
+              <div class="result-empty" id="result-empty">
+                <span class="result-empty-icon" aria-hidden="true"><svg class="icon"><use href="#icon-calendar"></use></svg></span>
+                <strong>Результат появится здесь</strong>
+                <p>Заполните дату последней менструации и длину цикла слева, чтобы увидеть расчёт и пояснение к каждой дате.</p>
+              </div>
+              <div class="result-rows" id="result-rows" hidden></div>
+            </div>
+          </div>
+
+          <div class="calculator-faq accordion">
+            <details>
+              <summary>Почему дата примерная, а не точная?</summary>
+              <p>Расчёт строится на средней длине цикла, которую вы указали. Реальная овуляция и начало следующей менструации могут сдвигаться на несколько дней даже при регулярном цикле, поэтому дата — ориентир, а не гарантия.</p>
+            </details>
+            <details>
+              <summary>Что делать, если цикл нерегулярный?</summary>
+              <p>При нерегулярном цикле расчёт менее надёжен. Ориентируйтесь на собственные наблюдения за циклом и, при необходимости, на рекомендации специалиста, а тест проводите по инструкции конкретного продукта.</p>
+            </details>
+            <details>
+              <summary>Когда лучше всего показывать тест?</summary>
+              <p>Для ХГЧ-теста инструкция рекомендует первую утреннюю мочу — она более концентрированная. Для ЛГ-теста первая утренняя моча не рекомендуется, лучше собирать образец между 10:00 и 20:00.</p>
+            </details>
+          </div>
+
+          <div class="hero-actions" style="justify-content: center; margin-top: 44px">
+            <a class="button button-secondary" href="instructions.html"
+              >Далее: как пользоваться тестом <svg class="icon"><use href="#icon-arrow-right"></use></svg></a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-main">
+        <img src="assets/logo/viatest-logo.png" alt="Viatest" width="2326" height="745" />
+        <p>Viatest помогает спокойно разобраться с выбором теста, инструкцией и результатом.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Навигация в подвале">
+        <a href="tests.html">Тесты</a>
+        <a href="instructions.html">Инструкции</a>
+        <a href="results.html">Результаты</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+      <p class="disclaimer">
+        Информация на сайте предназначена для ознакомления и не заменяет консультацию медицинского специалиста. Для интерпретации результата используйте официальную инструкцию конкретного продукта.
+      </p>
+    </footer>
+
+    <a class="sticky-buy" href="#" data-buy="default" data-place="sticky_mobile"
+      ><svg class="icon"><use href="#icon-cart"></use></svg>Купить</a
+    >
+    <script src="app.js" defer></script>
+  </body>
+</html>
