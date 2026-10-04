@@ -92,6 +92,7 @@ const tajikTranslations = {
 
   "Выберите тест Viatest": "Тести Viatest-ро интихоб кунед",
   "Нажмите «Купить», чтобы оформить заказ.": "Барои фармоиш тугмаи «Харидан»-ро пахш кунед.",
+  "Свернуть": "Пӯшидан",
   "Карточка продукта": "Корти маҳсулот",
   "Упаковка выбранного теста Viatest": "Қуттии тести интихобшудаи Viatest",
 
@@ -985,8 +986,19 @@ function setupProductInteractions() {
   document.addEventListener("click", (event) => {
     const detailButton = event.target.closest("[data-detail]");
     if (detailButton) {
+      const detailSection = document.querySelector("#product-detail");
       renderProductDetail(detailButton.dataset.detail);
-      document.querySelector("#product-detail")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (detailSection) {
+        detailSection.hidden = false;
+        detailSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      return;
+    }
+
+    if (event.target.closest("[data-detail-close]")) {
+      const detailSection = document.querySelector("#product-detail");
+      if (detailSection) detailSection.hidden = true;
+      document.querySelector("#tests")?.scrollIntoView({ behavior: "smooth", block: "start" });
       return;
     }
 

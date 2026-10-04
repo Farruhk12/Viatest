@@ -317,6 +317,10 @@ h3 {
   max-width: none;
 }
 
+.product-detail[hidden] {
+  display: none;
+}
+
 .section-note {
   max-width: 380px;
   display: inline-flex;
@@ -1702,6 +1706,19 @@ h3 {
   gap: 10px;
 }
 
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+.footer-social a:hover {
+  color: #ffffff;
+}
+
 .footer-social span {
   width: 38px;
   height: 38px;
@@ -2763,5 +2780,43 @@ body.menu-open .sticky-buy {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+.section-heading h2 + .section-note {
+  margin-top: 12px;
+}
+
+/* Calculator teaser: woman illustration with calendar badge */
+
+.calc-illustration-woman .calc-woman {
+  max-width: 340px;
+  animation: calc-float 6s ease-in-out infinite;
+}
+
+.calc-illustration-woman .calc-badge {
+  position: absolute;
+  right: 0;
+  bottom: 6%;
+  width: 42%;
+  max-width: 160px;
+  filter: drop-shadow(0 14px 24px rgba(7, 54, 111, 0.12));
+  animation: calc-float 6s ease-in-out -3s infinite;
+}
+
+@keyframes calc-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .calc-illustration-woman .calc-woman,
+  .calc-illustration-woman .calc-badge {
+    animation: none;
   }
 }
