@@ -2787,36 +2787,39 @@ body.menu-open .sticky-buy {
   margin-top: 12px;
 }
 
-/* Calculator teaser: woman illustration with calendar badge */
+/* Calculator teaser: pregnant woman illustration */
+
+.calc-teaser .calc-teaser-layout {
+  padding-bottom: 0;
+}
+
+.calc-teaser-layout > div:first-child {
+  align-self: center;
+  padding-bottom: 42px;
+}
+
+.calc-illustration.calc-illustration-woman {
+  align-self: end;
+  place-items: end center;
+  min-height: 0;
+}
 
 .calc-illustration-woman .calc-woman {
-  max-width: 340px;
-  animation: calc-float 6s ease-in-out infinite;
+  display: block;
+  max-width: 520px;
 }
 
-.calc-illustration-woman .calc-badge {
-  position: absolute;
-  right: 0;
-  bottom: 6%;
-  width: 42%;
-  max-width: 160px;
-  filter: drop-shadow(0 14px 24px rgba(7, 54, 111, 0.12));
-  animation: calc-float 6s ease-in-out -3s infinite;
-}
+/* Hero banner photo (packaging composition with its own background) */
 
-@keyframes calc-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
+@media (min-width: 1061px) {
+  .hero {
+    grid-template-columns: minmax(0, 0.8fr) minmax(420px, 1fr);
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .calc-illustration-woman .calc-woman,
-  .calc-illustration-woman .calc-badge {
-    animation: none;
-  }
+.hero-media img.hero-composition.hero-banner {
+  width: min(100%, 680px);
+  filter: none;
+  -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 72%, transparent 100%);
 }
