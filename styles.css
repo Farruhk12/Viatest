@@ -2823,3 +2823,7 @@ body.menu-open .sticky-buy {
   -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent 100%);
   mask-image: radial-gradient(closest-side, #000 72%, transparent 100%);
 }
+
+.footer-nav a.footer-instagram {
+  gap: 8px;
+}

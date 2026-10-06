@@ -1,4 +1,4 @@
-const DEFAULT_BUY_URL = atob("aHR0cHM6Ly9zYWxvbWF0LnRqLw==");
+const DEFAULT_BUY_URL = "https://salomat.tj/search?query=Viatest";
 const LANGUAGE_STORAGE_KEY = "viatest_language";
 const SUPPORTED_LANGUAGES = ["ru", "tj"];
 const DATE_LOCALES = {
@@ -466,7 +466,7 @@ const products = [
     width: 1024,
     height: 1536,
     alt: "Упаковка теста на беременность Viatest мидстрим",
-    buyUrl: DEFAULT_BUY_URL,
+    buyUrl: "https://salomat.tj/product/test-dlya-opredelenie-beremennosti-viatest-struynyy-no-1/8781",
     description:
       "Формат мидстрим подходит, когда нужен тест без отдельного погружения полоски в контейнер. Инструкция ХГЧ-теста указывает считывание результата в течение 5 минут.",
     benefits: [
@@ -489,7 +489,7 @@ const products = [
     width: 1029,
     height: 1529,
     alt: "Упаковка теста на беременность Viatest полоска",
-    buyUrl: DEFAULT_BUY_URL,
+    buyUrl: "https://salomat.tj/product/test-dlya-opredelenie-beremennosti-viatest-poloska-no-2/8782",
     description:
       "Классическая тест-полоска ХГЧ. По инструкции полоску погружают в мочу до линии MAX на 10–20 секунд, затем кладут горизонтально.",
     benefits: [
@@ -512,7 +512,7 @@ const products = [
     width: 1024,
     height: 1536,
     alt: "Упаковка теста на овуляцию Viatest полоска",
-    buyUrl: DEFAULT_BUY_URL,
+    buyUrl: "https://salomat.tj/product/test-dlya-opredeleniya-ovulyacii-viatest-poloska-no-5/8783",
     description:
       "Тест на овуляцию One Step LH помогает определить всплеск ЛГ. Инструкция рекомендует подбирать день начала тестирования по длине цикла.",
     benefits: [
